@@ -77,7 +77,7 @@
 
     self = [super init];
     if (self) {
-        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.modalPresentationStyle = UIModalPresentationFullScreen;
         self.automaticallyAdjustsScrollViewInsets = NO;
         

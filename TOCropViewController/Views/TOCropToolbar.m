@@ -63,7 +63,7 @@
 }
 
 - (void)setup {
-    self.backgroundColor = [UIColor colorWithWhite:0.12f alpha:1.0f];
+    self.backgroundColor = [UIColor colorWithWhite:0.0f alpha:1.0f];
     
     _rotateClockwiseButtonHidden = YES;
     
