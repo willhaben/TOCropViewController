@@ -138,7 +138,7 @@
     _resetButton.enabled = NO;
     [_resetButton setImage:[TOCropToolbar resetImage] forState:UIControlStateNormal];
     [_resetButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-//    [self addSubview:_resetButton];
+    [self addSubview:_resetButton];
 }
 
 - (void)layoutSubviews
