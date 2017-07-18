@@ -181,6 +181,11 @@ typedef NS_ENUM(NSInteger, TOCropViewControllerToolbarPosition) {
 @property (nonatomic, assign) TOCropViewControllerToolbarPosition toolbarPosition;
 
 /**
+ If false toolbar will not stick to position if the device is in horizontal orientation. The default value is `YES`
+ */
+@property (nonatomic, assign) BOOL toolBarSticksToPosition;
+
+/**
  When disabled, an additional rotation button that rotates the canvas in 
  90-degree segments in a clockwise direction is shown in the toolbar.
  

@@ -87,6 +87,7 @@
         
         _aspectRatioPreset = TOCropViewControllerAspectRatioPresetOriginal;
         _toolbarPosition = TOCropViewControllerToolbarPositionBottom;
+        _toolBarSticksToPosition = YES;
         _rotateClockwiseButtonHidden = YES;
     }
     
@@ -226,7 +227,7 @@
 - (CGRect)frameForToolBarWithVerticalLayout:(BOOL)verticalLayout
 {
     CGRect frame = CGRectZero;
-    if (!verticalLayout) {
+    if (!verticalLayout && !_toolBarSticksToPosition) {
         frame.origin.x = 0.0f;
         frame.origin.y = 0.0f;
         frame.size.width = 44.0f;
@@ -268,7 +269,7 @@
     }
     
     CGRect frame = CGRectZero;
-    if (!verticalLayout) {
+    if (!verticalLayout && !_toolBarSticksToPosition) {
         frame.origin.x = 44.0f;
         frame.origin.y = 0.0f;
         frame.size.width = CGRectGetWidth(bounds) - 44.0f;
@@ -317,8 +318,14 @@
     
     if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
         self.toolbarSnapshotView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    else
-        self.toolbarSnapshotView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
+    else {
+        if (_toolBarSticksToPosition) {
+            self.toolbarSnapshotView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        }
+        else {
+            self.toolbarSnapshotView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
+        }
+    }
     
     [self.view addSubview:self.toolbarSnapshotView];
     
